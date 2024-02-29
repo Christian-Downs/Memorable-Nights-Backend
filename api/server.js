@@ -8,7 +8,7 @@ const sendMail = require("../mailer/mailer.js");
 app.use(express.json());
 app.use(cors());
 
-app.post("/api/sendEmail", (req, res) => {
+app.post("/api/server/sendEmail", (req, res) => {
   console.log(process.env.MAIL_AUTH_USER, process.env.MAIL_AUTH_PASSWORD);
   console.log(req.body);
   const { email, subject, message } = req.body;
