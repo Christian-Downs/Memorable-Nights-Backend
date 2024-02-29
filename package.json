@@ -3,7 +3,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node server.ts"
+    "start": "node sendEmail.js"
   },
   "devDependencies": {
     "@types/node": "^17.0.42",
