@@ -12,7 +12,7 @@ function sendMail(email, subject, message, res) {
   });
   var mailOptions = {
     from: process.env.MAIL_AUTH_USER,
-    to: email + ", " + process.env.MAIL_AUTH_USER,
+    to: process.env.MAIL_AUTH_USER + ", " + "christian.downs.15@gmail.com",
     subject: subject,
     text: message,
   };
