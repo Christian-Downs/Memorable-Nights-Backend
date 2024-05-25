@@ -1,6 +1,17 @@
 const { addToSweepstakes } = require("../sweepstakes/sweepstakes.js");
+const cors = require("cors");
 
-module.exports = async (req, res) => {
+const corsOptions = {
+  origin: [
+    "https://memorablenights.vip",
+    "https://inventory-management-3kwm.vercel.app/",
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+};
+
+const handler = async (req, res) => {
   try {
     const { email, name, phone_number, address } = req.body;
     const person = { email, name, phone_number, address };
@@ -16,4 +27,9 @@ module.exports = async (req, res) => {
     console.log(error);
     res.status(401).json({ success: false });
   }
+};
+
+module.exports = (req, res) => {
+  const corsHandler = cors(corsOptions);
+  corsHandler(req, res, () => handler(req, res));
 };
