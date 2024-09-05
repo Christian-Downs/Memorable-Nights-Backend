@@ -1,4 +1,14 @@
+const addToSweepstakes = require("../api/addToSweepstakes");
+
 function sendMail(email, subject, message, res) {
+
+  // Add user to sweepstakes
+  try {
+    addToSweepstakes(email);
+  } catch (error) {
+    console.log("Error adding user to sweepstakes: " + error);
+  }
+
   var nodemailer = require("nodemailer");
 
   var nodemailer = require("nodemailer");
